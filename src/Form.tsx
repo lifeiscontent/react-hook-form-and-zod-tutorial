@@ -41,10 +41,12 @@ export const Form: FC = () => {
     register,
     watch,
     handleSubmit,
-    formState: { errors, isSubmitting },
+    formState: { errors, isSubmitting, values },
   } = useForm<FormSchemaType>({
     resolver: zodResolver(FormSchema),
   });
+  
+  console.log(values);
 
   const onSubmit: SubmitHandler<FormSchemaType> = async (data) => {
     await new Promise(async (resolve) => {
